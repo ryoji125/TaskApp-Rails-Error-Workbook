@@ -32,9 +32,11 @@
     </table>
     
     <div>
-      <%= link_to "編集", edit_user_task_path(@user, @task), class: "btn btn-lg btn-success" %>
+      <%= link_to "編集", edit_user_task_path(@user, @task),remote: true, class: "btn btn-lg btn-success" %>
       <%= link_to "削除", user_task_path(@user, @task), method: :delete,
       data: { confirm: "「#{@task.name}」を削除します。よろしいですか？" }, class: "btn btn-lg btn-danger" %>
     </div>
   </div>    
 </div>
+
+<div id="edit-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

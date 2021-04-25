@@ -1,0 +1,29 @@
+<% provide(:title, 'Edit Task') %>
+
+<div class="modal-dialog modal-lg modal-dialog-center">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+        <span span aria-hidden="true">
+          &times;
+        </span>
+      </button>
+      <h1 class="modal-title">タスク編集</h1>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <%= form_with(model: @task, url: user_task_path(@user, @task), remote: true, method: :post) do |f| %>
+
+            <%= f.label :name, class: "label-form" %>
+            <%= f.text_field :name, class: "form-control" %>
+
+            <%= f.label :description, class: "label-form" %>
+            <%= f.text_area :description, rows: 5, class: "form-control" %>
+
+            <%= f.submit "更新", class: "btn btn-primary btn-form" %>
+            <%= link_to "キャンセル", user_tasks_path(@user), class: "btn btn-default btn-form" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
